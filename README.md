@@ -6,6 +6,9 @@ npx create-next-app@laest
 alias added as NO.
 Added YES for src,tailwindcss,linting
 
+## add npm i mongoose
+
+
 ## Getting Started
 npx create-next-app@laest
 First, run the development server:
