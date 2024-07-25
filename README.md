@@ -1,7 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
+## To Create Next app
+npx create-next-app@laest
+alias added as NO.
+Added YES for src,tailwindcss,linting
+
+## Getting Started
+npx create-next-app@laest
 First, run the development server:
 
 ```bash
