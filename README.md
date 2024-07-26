@@ -8,9 +8,10 @@ Added YES for src,tailwindcss,linting
 
 ## add npm i mongoose
 
-
+## for email sending process use :- https://resend.com/
+https://resend.com/docs/send-with-nextjs
 ## Getting Started
-npx create-next-app@laest
+npx create-next-app@latest
 First, run the development server:
 
 ```bash
