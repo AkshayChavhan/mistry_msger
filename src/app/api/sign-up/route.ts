@@ -9,7 +9,8 @@ export async function POST(request:Request){
     await dbConnect()
 
     try {
-        const { username, email,password } = await request.json();
+        const requestBody = await request.json();
+        const { username, email,password } = requestBody;
         const existingUserVerifiedByUsername = await UserModel.findOne({
             username,
             isVerified:true
@@ -20,8 +21,8 @@ export async function POST(request:Request){
                 message:"Username is already taken."
             },{status:400})
         }
-        const existingUserByEmail =await UserModel.findOne({ email}) 
-        const verifyCode = Math.floor(100000 + Math.random() *900000).toString()
+        const existingUserByEmail = await UserModel.findOne({ email}) 
+        const verifyCode = Math.floor(100000 + Math.random() *900000).toString();
         if(existingUserByEmail){
             if(existingUserByEmail.isVerified){
                 return Response.json({
@@ -50,7 +51,6 @@ export async function POST(request:Request){
                 isAcceptingMessages: true,
                 messages: []
             })
-
             await newUser.save();
         }
 
@@ -65,7 +65,11 @@ export async function POST(request:Request){
                 success:true,
                 message: "User registered successfully ,Please verify your email."
             },{status:201})            
-        }
+        } 
+        return Response.json({
+            success:true,
+            message: "Please verify your email."
+            },{status:400})
     } catch (error) {
         console.error("Error registering user", error);
         return Response.json({
